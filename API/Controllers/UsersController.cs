@@ -9,11 +9,8 @@ using System.Threading.Tasks;
 
 namespace API.Controllers
 {
-    //ApiController attribute required to define the class as a controller
-    //Route is a handler and [controller] will be replaced with Users
-    [ApiController]
-    [Route("api/[controller]")]
-    public class UsersController : ControllerBase
+
+    public class UsersController : BaseApiController
     {
         private readonly DataContext _context;
 
@@ -27,7 +24,7 @@ namespace API.Controllers
         public async Task<ActionResult<IEnumerable<AppUser>>> GetUsers()
         {
             //DB values stored in variable
-            return await _context.Users.ToListAsync();
+            return await _context.Users.ToListAsync(); 
   
         }
         //with id
